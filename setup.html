@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Setup Page</title>
+        <link rel="stylesheet" href="setup.css">
+    </head>
+    <body>
+        <br>
+        <label for="team1_name">Team 1 Name:</label>
+        <input type="text" id="team1_name" oninput="updateDropdown()" name="team1">
+        
+        <label for="team2_name">Team 2 Name:</label>
+        <input type="text" id="team2_name" oninput="updateDropdown()" name="team2">
+        
+        <label for="toss_winner">Toss Winner:</label>
+        <select id="toss_winner">
+            <option value="team1" id="team1_option"></option>
+            <option value="team2" id="team2_option"></option>
+        </select>
+
+        <label for="toss_decision">Toss Decision:</label>
+        <select id="toss_decision">
+            <option value="bat">Bat</option>
+            <option value="bowl">Bowl</option>
+        </select>
+
+    <label for="total_overs">Number of Overs:</label>
+    <select id="total_overs">
+        <option value="2">2 Overs</option>
+        <option value="5">5 Overs</option>
+        <option value="10">10 Overs</option>
+        <option value="20">20 Overs</option>
+        <option value="50">50 Overs</option>
+    </select>
+    
+        <button type="button" id="startMatch">Start Match</button>
+        <script src="score.js"></script>
+    </body>
+</html>

@@ -1,0 +1,270 @@
+/* live.css - Darker Cricket Scoreboard Theme */
+
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e1e;
+    /* Darker background */
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    overflow-x: clip
+}
+
+/* Header Styles */
+#matchHeader {
+    color: #00bcd4;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    border: 1px solid #007c91;
+}
+
+/* Score Info Display */
+#rrrDisplay {
+    background-color: rgba(0, 188, 212, 0.15);
+    color: #00bcd4;
+    padding: 12px 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid rgba(0, 188, 212, 0.3);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+th {
+    background-color: rgba(0, 188, 212, 0.25);
+    color: #00bcd4;
+}
+
+/* Buttons */
+button {
+    background-color: #00bcd4;
+    color: #1e1e1e;
+    border: none;
+    padding: 12px 18px;
+    margin: 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2a2a2a;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    border: 1px solid #00bcd4;
+    max-width: 90%;
+    width: 400px;
+}
+
+.modal h3 {
+    color: #00bcd4;
+    margin-top: 0;
+    border-bottom: 1px solid #007c91;
+    padding-bottom: 10px;
+}
+
+/* Input Fields */
+input,
+select {
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #007c91;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 4px;
+    width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #00bcd4;
+    box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.3);
+}
+
+/* Highlight Current Bowler/Batter */
+#bowlerName,
+.isStriker {
+    color: #00bcd4;
+    font-weight: bold;
+}
+
+.extras-display {
+    text-align: right;
+    padding: 12px 15px;
+    margin: 5px 0;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    color: #e0e0e0;
+    border-left: 3px solid #00bcd4;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95em;
+}
+
+/* Commentary Feed */
+#commentaryContainer {
+    margin-top: 25px;
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 6px;
+    padding: 15px;
+    border: 1px solid #007c91;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#commentaryContainer h3 {
+    color: #00bcd4;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.2em;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 188, 212, 0.3);
+}
+
+#commentaryFeed {
+    max-height: 250px;
+    overflow-y: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: #00bcd4 #2a2a2a;
+}
+
+/* Webkit scrollbar */
+#commentaryFeed::-webkit-scrollbar {
+    width: 6px;
+}
+
+#commentaryFeed::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+#commentaryFeed::-webkit-scrollbar-thumb {
+    background-color: #00bcd4;
+    border-radius: 3px;
+}
+
+.commentary-entry {
+    padding: 10px 12px;
+    margin: 8px 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-left: 3px solid #00bcd4;
+    border-radius: 4px;
+    position: relative;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    #commentaryFeed {
+        max-height: 200px;
+    }
+
+    .commentary-entry {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    #commentaryFeed {
+        max-height: 200px;
+    }
+
+    .commentary-entry {
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    #matchHeader {
+        font-size: 1.4em;
+        padding: 10px;
+    }
+
+    button {
+        padding: 10px 15px;
+        margin: 5px;
+    }
+
+    .modal {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+/* Animation Classes */
+.page-load {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.5s ease-out 0.2s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

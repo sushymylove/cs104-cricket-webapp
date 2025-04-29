@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="live.css">
+    <style>
+        #scoringInterface {
+            display: none;
+        }
+    </style>
+    <title>Live Match</title>
+</head>
+
+<body class="page-load">
+
+    <!-- Match Setup Modal -->
+    <div id="matchSetupModal">
+        <h2>Match Setup</h2>
+
+        <label style="color: #00bcd4; font-weight: bold;">Strike Batter:</label>
+        <input type="text" id="strikeBatterName" placeholder="Name" required><br>
+
+        <label style="color: #00bcd4; font-weight: bold;">Non-Strike Batter:</label>
+        <input type="text" id="nonStrikeBatterName" placeholder="Name" required><br>
+
+        <label style="color: #00bcd4; font-weight: bold;">First Bowler:</label>
+        <input type="text" id="firstBowlerName" placeholder="Name" required><br><br>
+
+        <button id="startMatch">Start First Innings</button>
+    </div>
+
+    <div id="scoringInterface" class="hidden">
+        <h1 id="matchHeader">Team A 0/0 (0.0) vs Team B</h1>
+        <div id="rrrDisplay"></div>
+
+        <!-- Batting Table -->
+        <h2>Batting</h2>
+        <table id="batterTable">
+            <tr>
+                <th>Batter</th>
+                <th>Runs</th>
+                <th>Balls</th>
+                <th>4s</th>
+                <th>6s</th>
+                <th>SR</th>
+            </tr>
+            <tr id="batter1Row">
+                <td id="batter1Name">Batter 1 *</td>
+                <td id="batter1Runs">0</td>
+                <td id="batter1Balls">0</td>
+                <td id="batter1Fours">0</td>
+                <td id="batter1Sixes">0</td>
+                <td id="batter1SR">0.00</td>
+            </tr>
+            <tr id="batter2Row">
+                <td id="batter2Name">Batter 2</td>
+                <td id="batter2Runs">0</td>
+                <td id="batter2Balls">0</td>
+                <td id="batter2Fours">0</td>
+                <td id="batter2Sixes">0</td>
+                <td id="batter2SR">0.00</td>
+            </tr>
+        </table>
+
+        <!-- Bowling Table -->
+        <h2>Bowling</h2>
+        <table id="bowlerTable">
+            <tr>
+                <th>Bowler</th>
+                <th>Overs</th>
+                <th>Maidens</th>
+                <th>Runs</th>
+                <th>Wickets</th>
+                <th>Economy</th>
+            </tr>
+            <tr id="bowlerRow">
+                <td id="bowlerName">Bowler 1</td>
+                <td id="bowlerOvers">0.0</td>
+                <td id="bowlerMaidens">0</td>
+                <td id="bowlerRuns">0</td>
+                <td id="bowlerWickets">0</td>
+                <td id="bowlerEconomy">0.00</td>
+            </tr>
+        </table>
+
+        <div id="extrasDisplay" class="extras-display"></div>
+
+        <!-- Runs and Wicket Buttons -->
+        <div>
+            <button id="run0">0</button>
+            <button id="run1">1</button>
+            <button id="run2">2</button>
+            <button id="run3">3</button>
+            <button id="run4">4</button>
+            <button id="run6">6</button>
+            <button id="wicketBtn">Wicket</button>
+            <button id="runOutBtn">Run Out</button>
+        </div>
+
+        <!-- Extras Buttons -->
+        <div>
+            <button id="wideBtn">Wide</button>
+            <button id="noBallBtn">No-Ball</button>
+            <button id="byesBtn">Byes</button>
+            <button id="legByesBtn">Leg Byes</button>
+        </div>
+
+
+        <!-- Wicket Modal -->
+        <div id="wicketModal" class="modal" style="display:none;">
+            <h3>Wicket!</h3>
+            <p>New batter name:</p>
+            <input type="text" id="newBatterName">
+
+            <p>Dismissal type:</p>
+            <select id="dismissalType">
+                <option value="bowled">Bowled</option>
+                <option value="caught">Caught</option>
+                <option value="lbw">LBW</option>
+                <option value="stumped">Stumped</option>
+                <option value="hit wicket">Hit Wicket</option>
+            </select>
+
+            <button id="submitWicket">Submit</button>
+            <button id="cancelWicket">Cancel</button>
+        </div>
+
+        <!-- Extras Modal -->
+        <div id="extrasModal" class="modal" style="display:none;">
+            <h3 id="extrasModalTitle"></h3>
+            <p>Runs to add (minimum 1 for byes/leg byes):</p>
+            <input type="number" id="extrasRuns" min="0" value="0">
+            <button id="submitExtras">Submit</button>
+            <button id="cancelExtras">Cancel</button>
+        </div>
+
+        <!-- Run Out Modal -->
+        <div id="runOutModal" class="modal" style="display:none;">
+            <h3>Run Out</h3>
+            <div>
+                <p>Runs scored before run out:</p>
+                <input type="number" id="runOutRuns" value="0" min="0" max="6">
+            </div>
+            <div>
+                <p>Batter out:</p>
+                <select id="runOutBatter">
+                    <option value="striker">Striker</option>
+                    <option value="nonStriker">Non-Striker</option>
+                </select>
+            </div>
+            <div>
+                <p>New batter name:</p>
+                <input type="text" id="newRunOutBatterName" placeholder="Name">
+            </div>
+            <div>
+                <p>New batter position:</p>
+                <select id="runOutPosition">
+                    <option value="strike">Strike</option>
+                    <option value="nonStrike">Non-Strike</option>
+                </select>
+            </div>
+            <div class="modal-buttons">
+                <button id="submitRunOut">Submit</button>
+                <button id="cancelRunOut">Cancel</button>
+            </div>
+        </div>
+
+        <!-- New Bowler Modal -->
+        <div id="newBowlerModal" class="modal" style="display:none;">
+            <h3>New Bowler</h3>
+            <p>Bowler name:</p>
+            <input type="text" id="newBowlerName">
+            <button id="submitNewBowler">Submit</button>
+        </div>
+
+        <!-- Inning Transition Modal -->
+        <div id="inningTransitionModal" class="modal" style="display:none">
+            <h3>Innings Break</h3>
+            <p>First Innings: <span id="firstInningScoreDisplay">0/0</span></p>
+            <p><span id="targetScoreDisplay">0</span></p>
+
+            <h4>Second Innings Setup</h4>
+            <div>
+                <label>Strike Batter:</label>
+                <input type="text" id="secondInningStriker" placeholder="Name">
+            </div>
+            <div>
+                <label>Non-Strike Batter:</label>
+                <input type="text" id="secondInningNonStriker" placeholder="Name">
+            </div>
+            <div>
+                <label>First Bowler:</label>
+                <input type="text" id="secondInningBowler" placeholder="Name">
+            </div>
+
+            <button id="startSecondInning">Start Second Innings</button>
+        </div>
+
+        <!-- Match Ended ALert -->
+        <div id="matchEndedAlert" class="modal" style="display: none;">
+            <div class="alert-content">
+                <h3>Match Ended!</h3>
+                <p>The match has concluded. You can view the scorecard or match summary.</p>
+                <button id="dismissAlert" class="modal-buttons">OK</button>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button id="viewScorecard">View Scorecard</button>
+        <button id="viewSummary" style="display:none;">View Match Summary</button>
+
+        <!-- Commentary Feed -->
+        <div id="commentaryContainer">
+            <h3>Ball-by-Ball Commentary</h3>
+            <div id="commentaryFeed"></div>
+        </div>
+
+    </div>
+    <script src="score.js"></script>
+</body>
+
+</html>

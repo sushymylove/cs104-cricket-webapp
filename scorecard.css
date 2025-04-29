@@ -1,0 +1,133 @@
+/* scorecard.css - Dark Cricket Scorecard Theme */
+
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Back Button */
+.back-button {
+    background-color: #00bcd4;
+    color: #1e1e1e;
+    border: none;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+}
+
+/* Headers */
+h1, h2 {
+    color: #00bcd4;
+    margin: 20px 0;
+}
+
+h1 {
+    text-align: center;
+    border-bottom: 2px solid #007c91;
+    padding-bottom: 10px;
+}
+
+/* Summary Box */
+#matchSummary {
+    color: #00bcd4;
+    font-size:larger;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    border: 1px solid #007c91;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+th {
+    background-color: rgba(0, 188, 212, 0.25);
+    color: #00bcd4;
+}
+
+/* Highlight current batters */
+.highlight-batter {
+    color: #00bcd4;
+    font-weight: bold;
+}
+
+.extras, .total {
+    text-align: right;
+    padding: 12px 15px;
+    margin: 5px 0;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.extras {
+    color: #e0e0e0;
+    border-left: 3px solid #00bcd4;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95em;
+}
+
+.total {
+    color: #00bcd4;
+    border-left: 3px solid #00bcd4;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    .container {
+        width: 95%;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body {
+    animation: fadeIn 0.5s ease-out forwards;
+}

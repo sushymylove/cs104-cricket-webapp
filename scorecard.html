@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scorecard.css">
+    <title>Match Scorecard</title>
+</head>
+
+<body>
+    <div class="container">
+        <button id="backToLive" class="back-button">← Back to Live Match</button>
+
+        <h1 id="matchTitle">Match Scorecard</h1>
+
+        <div id="matchSummary" class="match-summary"></div>
+
+        <!-- First Innings -->
+        <div id="firstInningSection" class="inning-section">
+            <div class="inning-header">
+                <h2>1st Innings</h2>
+            </div>
+
+            <div id="firstInningBatting" class="scorecard-section">
+                <h3 id="firstInningBattingHeader"></h3>
+                <table class="scorecard-table">
+                    <thead>
+                        <tr>
+                            <th>Batter</th>
+                            <th>R</th>
+                            <th>B</th>
+                            <th>4s</th>
+                            <th>6s</th>
+                            <th>SR</th>
+                            <th>Dismissal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="firstInningBattingTableBody"></tbody>
+                </table>
+                <div id="firstInningExtras" class="extras"></div>
+                <div id="firstInningTotal" class="total"></div>
+            </div>
+
+            <div id="firstInningBowling" class="scorecard-section">
+                <h3 id="firstInningBowlingHeader"></h3>
+                <table class="scorecard-table">
+                    <thead>
+                        <tr>
+                            <th>Bowler</th>
+                            <th>O</th>
+                            <th>M</th>
+                            <th>R</th>
+                            <th>W</th>
+                            <th>Econ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="firstInningBowlingTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Second Innings -->
+        <div id="secondInningSection" class="inning-section">
+            <div class="inning-header">
+                <h2>2nd Innings</h2>
+                <div id="targetDisplay" class="target"></div>
+            </div>
+
+            <div id="secondInningBatting" class="scorecard-section">
+                <h3 id="secondInningBattingHeader"></h3>
+                <table class="scorecard-table">
+                    <thead>
+                        <tr>
+                            <th>Batter</th>
+                            <th>R</th>
+                            <th>B</th>
+                            <th>4s</th>
+                            <th>6s</th>
+                            <th>SR</th>
+                            <th>Dismissal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="secondInningBattingTableBody"></tbody>
+                </table>
+                <div id="secondInningExtras" class="extras"></div>
+                <div id="secondInningTotal" class="total"></div>
+            </div>
+
+            <div id="secondInningBowling" class="scorecard-section">
+                <h3 id="secondInningBowlingHeader"></h3>
+                <table class="scorecard-table">
+                    <thead>
+                        <tr>
+                            <th>Bowler</th>
+                            <th>O</th>
+                            <th>M</th>
+                            <th>R</th>
+                            <th>W</th>
+                            <th>Econ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="secondInningBowlingTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="score.js"></script>
+</body>
+
+</html>
