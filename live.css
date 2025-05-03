@@ -201,18 +201,6 @@ textarea:focus {
     }
 }
 
-/* Mobile adjustments */
-@media (max-width: 600px) {
-    #commentaryFeed {
-        max-height: 200px;
-    }
-
-    .commentary-entry {
-        padding: 6px 10px;
-        font-size: 0.9em;
-    }
-}
-
 /* Responsive Adjustments */
 @media (max-width: 600px) {
     body {
