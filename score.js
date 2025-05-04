@@ -498,11 +498,6 @@ else if (window.location.pathname.includes("live.html")) {
                 currentStriker.runs += runs;
                 bowler.runs += runs;
                 bowler.currentOverRuns += runs;
-
-                // Rotate strike if odd runs scored
-                if (runs % 2 !== 0) {
-                    matchState.batter1.isStriker = !matchState.batter1.isStriker;
-                    matchState.batter2.isStriker = !matchState.batter2.isStriker;
                 }
             }
 
