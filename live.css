@@ -189,18 +189,6 @@ textarea:focus {
     position: relative;
 }
 
-/* Mobile responsive */
-@media (max-width: 600px) {
-    #commentaryFeed {
-        max-height: 200px;
-    }
-
-    .commentary-entry {
-        padding: 8px 10px;
-        font-size: 0.9em;
-    }
-}
-
 /* Mobile adjustments */
 @media (max-width: 600px) {
     #commentaryFeed {
